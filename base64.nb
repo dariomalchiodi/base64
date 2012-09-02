@@ -1,0 +1,271 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.1'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7045,        197]*)
+(*NotebookOutlinePosition[      7681,        219]*)
+(*  CellTagsIndexPosition[      7637,        215]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(base64EncodeTable[n_] := 
+      Which[\[IndentingNewLine]n \[Equal] 0, "\<=\>", \[IndentingNewLine]n < 
+          26, \[IndentingNewLine]FromCharacterCode[
+          ToCharacterCode["\<A\>"] + n], \[IndentingNewLine]n < 
+          52, \[IndentingNewLine]FromCharacterCode[
+          ToCharacterCode["\<a\>"] + n - 26], \[IndentingNewLine]n < 
+          62, \[IndentingNewLine]FromCharacterCode[
+          ToCharacterCode["\<0\>"] + n - 52], \[IndentingNewLine]n \[Equal] 
+          62, "\<+\>", \[IndentingNewLine]n \[Equal] 
+          63, "\<-\>"\[IndentingNewLine]]\)], "Input"],
+
+Cell[BoxData[
+    \(base64GroupEncode[group_] := 
+      Block[{}, \[IndentingNewLine]f = 
+          Partition[Map[IntegerDigits[#, 2, 8] &, group] // Flatten, 
+            6]; \[IndentingNewLine]base64EncodeTable /@ 
+          Map[FromDigits[#, 2] &, f]\[IndentingNewLine]]\)], "Input"],
+
+Cell[BoxData[
+    \(base64Encode[byt_] := 
+      Block[{b}, \[IndentingNewLine]b = byt; \[IndentingNewLine]b = 
+          Join[b, Switch[
+              Mod[Length[b], 
+                3], \[IndentingNewLine]0, {}, \[IndentingNewLine]1, {0, 
+                0}, \[IndentingNewLine]2, {0}\[IndentingNewLine]]]; \
+\[IndentingNewLine]StringExpression @@ \((base64GroupEncode /@ 
+                Partition[b, 3] // Flatten)\)\[IndentingNewLine]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(base64Encode[{155, 162, 233, 155, 162, 233}]\)], "Input"],
+
+Cell[BoxData[
+    \("m6Lpm6Lp"\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \("\<Sm9iIDY2\>" // Characters\)], "Input"],
+
+Cell[BoxData[
+    \({"S", "m", "9", "i", "I", "D", "Y", "2"}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(base64Encode[ToCharacterCode["\<Job 66\>"]]\)], "Input"],
+
+Cell[BoxData[
+    \("Sm9iIDY2"\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(base64DecodeTable[c_] := 
+      Which[\[IndentingNewLine]FromCharacterCode[c] \[Equal] "\<-\>", 
+        63, \[IndentingNewLine]FromCharacterCode[c] \[Equal] "\<+\>", 
+        62, \[IndentingNewLine]\(ToCharacterCode["\<0\>"]\)[\([1]\)] \
+\[LessEqual] 
+          c\  \[LessEqual] \(ToCharacterCode["\<9\>"]\)[\([1]\)], \
+\[IndentingNewLine]c - \(ToCharacterCode["\<0\>"]\)[\([1]\)] + 
+          52, \[IndentingNewLine]\(ToCharacterCode["\<a\>"]\)[\([1]\)] \
+\[LessEqual] 
+          c\  \[LessEqual] \(ToCharacterCode["\<z\>"]\)[\([1]\)], \
+\[IndentingNewLine]c - \(ToCharacterCode["\<a\>"]\)[\([1]\)] + 
+          26, \[IndentingNewLine]\(ToCharacterCode["\<A\>"]\)[\([1]\)] \
+\[LessEqual] 
+          c\  \[LessEqual] \(ToCharacterCode["\<Z\>"]\)[\([1]\)], \
+\[IndentingNewLine]c - \(ToCharacterCode["\<A\>"]\)[\([1]\)], \
+\[IndentingNewLine]FromCharacterCode[c] \[Equal] "\<=\>", 
+        0\[IndentingNewLine]]\)], "Input"],
+
+Cell[BoxData[
+    \(base64GroupDecode[group_] := 
+      Block[{}, \[IndentingNewLine]\(FromDigits[#, 2] &\)\  /@ 
+          Partition[\(IntegerDigits[#, 2, 6] &\) /@ group // Flatten, 
+            8]\[IndentingNewLine]]\)], "Input"],
+
+Cell[BoxData[
+    \(base64Decode[str_] := 
+      Block[{s}, \[IndentingNewLine]s = 
+          ToCharacterCode[
+            StringReplace[str, 
+              n : Except["\<=\>"] ...  ~~ {"\<=\>"} ..  \[Rule] 
+                n]]; \[IndentingNewLine]\((base64GroupDecode /@ 
+              Partition[base64DecodeTable /@ s, 4, 4, {1, 1}, {}])\) // 
+          Flatten\[IndentingNewLine]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(base64Decode["\<Sm9iIDY2\>"]\)], "Input"],
+
+Cell[BoxData[
+    \("Job 66"\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(base64Decode["\<\
+Sm9iIDY2NTkzNyBzZW50IHRvIHNjaHdpbm4ubWNzLmFubC5nb3YKcGFzc3dvcmQ6IEp2aFZrdHNpCi\
+0tLS0tLS0tLS0gQmVnaW4gU29sdmVyIE91dHB1dCAtLS0tLS0tLS0tLQpFeGVjdXRpbmcgL2hvbWUv\
+bmVvc290Yy9uZW9zLTUtc29sdmVycy9zbm9wdC1hbXBsL3Nub3B0LWRyaXZlci5weQpGaWxlIGV4aX\
+N0cwpZb3UgYXJlIHVzaW5nIHRoZSBzb2x2ZXIgc25vcHQuCkV4ZWN1dGluZyBBTVBMLgpwcm9jZXNz\
+aW5nIGRhdGEuCnByb2Nlc3NpbmcgY29tbWFuZHMuCgoyIHZhcmlhYmxlcywgYWxsIG5vbmxpbmVhcg\
+oxIGNvbnN0cmFpbnQsIGFsbCBsaW5lYXI7IDIgbm9uemVyb3MKMSBub25saW5lYXIgb2JqZWN0aXZl\
+OyAyIG5vbnplcm9zLgoKU05PUFQgNi4yLTI6IEVycm9yIGV2YWx1YXRpbmcgbm9ubGluZWFyIGV4cH\
+Jlc3Npb25zLgoyIGl0ZXJhdGlvbnMsIG9iamVjdGl2ZSA5Cg==\>"]\)], "Input"],
+
+Cell[BoxData[
+    \("Job 665937 sent to schwinn.mcs.anl.gov\npassword: JvhVktsi\n---------- \
+Begin Solver Output -----------\nExecuting \
+/home/neosotc/neos-5-solvers/snopt-ampl/snopt-driver.py\nFile exists\nYou are \
+using the solver snopt.\nExecuting AMPL.\nprocessing data.\nprocessing \
+commands.\n\n2 variables, all nonlinear\n1 constraint, all linear; 2 nonzeros\
+\n1 nonlinear objective; 2 nonzeros.\n\nSNOPT 6.2-2: Error evaluating \
+nonlinear expressions.\n2 iterations, objective 9"\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(base64Encode[
+      ToCharacterCode["\<The quickCode brown fox jumps over the lazy dog\>"]]\
+\)], "Input"],
+
+Cell[BoxData[
+    \("VGhlIHF1aWNrQ29kZSBicm93biBmb3gganVtcHMgb3ZlciB0aGUgbGF6eSBkb2c="\)], \
+"Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(base64Decode["\<\
+VGhlIHF1aWNrQ29kZSBicm93biBmb3gganVtcHMgb3ZlciB0aGUgbGF6eSBkb2c=\>"]\)], \
+"Input"],
+
+Cell[BoxData[
+    \("The quickCode brown fox jumps over the lazy d"\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"5.1 for Macintosh",
+ScreenRectangle->{{0, 1280}, {0, 754}},
+WindowSize->{520, 639},
+WindowMargins->{{Automatic, 44}, {Automatic, 0}}
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 600, 10, 187, "Input"],
+Cell[2357, 63, 286, 5, 91, "Input"],
+Cell[2646, 70, 453, 8, 171, "Input"],
+
+Cell[CellGroupData[{
+Cell[3124, 82, 77, 1, 27, "Input"],
+Cell[3204, 85, 44, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3285, 91, 61, 1, 27, "Input"],
+Cell[3349, 94, 74, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3460, 100, 76, 1, 27, "Input"],
+Cell[3539, 103, 44, 1, 27, "Output"]
+}, Open  ]],
+Cell[3598, 107, 944, 17, 235, "Input"],
+Cell[4545, 126, 232, 4, 91, "Input"],
+Cell[4780, 132, 396, 8, 139, "Input"],
+
+Cell[CellGroupData[{
+Cell[5201, 144, 61, 1, 27, "Input"],
+Cell[5265, 147, 42, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5344, 153, 665, 9, 235, "Input"],
+Cell[6012, 164, 507, 7, 283, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6556, 176, 126, 3, 75, "Input"],
+Cell[6685, 181, 102, 2, 43, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6824, 188, 121, 3, 59, "Input"],
+Cell[6948, 193, 81, 1, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+

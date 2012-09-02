@@ -1,0 +1,276 @@
+(************** Content-type: application/mathematica **************
+                     CreatedBy='Mathematica 5.1'
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used with any Mathematica-compatible
+application, such as Mathematica, MathReader or Publicon. The data
+for the notebook starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do
+one of the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the
+  application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing
+the word CacheID, otherwise Mathematica-compatible applications may
+try to use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+*******************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4945,        183]*)
+(*NotebookOutlinePosition[      5978,        218]*)
+(*  CellTagsIndexPosition[      5850,        211]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[TextData[{
+  "A ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " base64 Package"
+}], "Title"],
+
+Cell["\<\
+Dario Malchiodi
+Universit\[AGrave] degli Studi di Milano
+Dipartimento di Scienze dell'Informazione
+Via Comelico 39/41 2135 Milano ITALY
+malchiodi@dsi.unimi.it\
+\>", "Author"],
+
+Cell[CellGroupData[{
+
+Cell["The base64 encoding", "Section"],
+
+Cell["\<\
+Base64 is a 64-bit encoding typically used in order to encode \
+binary attachments to e-mails. It mpas a group of three consecutive bytes \
+with four ASCII printable characters according to a prefixed conversion \
+table.\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Obtaining and installing the package", "Section"],
+
+Cell[TextData[{
+  "The software is available at the address \
+http://homes.dsi.unimi.it/~malchiod/software/base64 in form of a package file \
+for ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ". The installation consists in downloading base64.m file and saving it in \
+a directory within the $Path variable (a suggested choice is the Applications \
+directory in the ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  " system- or user-based root directory)."
+}], "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Using the package", "Section"],
+
+Cell[TextData[{
+  "The package loads as usual in ",
+  StyleBox["Mathematica",
+    FontSlant->"Italic"],
+  ":"
+}], "Text"],
+
+Cell[BoxData[
+    \(<< base64`\)], "Input"],
+
+Cell[TextData[{
+  "The functions ",
+  StyleBox["base64Encode", "InlineInput"],
+  " and ",
+  StyleBox["base64Decode", "InlineInput"],
+  " are provided. The first handles encoding a succession of bytes (contained \
+in a list):"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?base64Encode\)\)], "Input"],
+
+Cell[BoxData[
+    \("base64Encode[byt] returns the string base64-encoding the sequence of \
+bytes byt"\)], "Print",
+  CellTags->"Info3347957193-2060766"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(\(original = 
+        ToCharacterCode["\<The quick brown fox jumps over the lazy dog\>"];\)\
+\), "\[IndentingNewLine]", 
+    \(base64Encode[original]\)}], "Input"],
+
+Cell[BoxData[
+    \("VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZw=="\)], \
+"Output"]
+}, Open  ]],
+
+Cell[TextData[{
+  "Analogously, ",
+  StyleBox["base64Decode", "InlineInput"],
+  " returns a list containing the decoded bits corresponding to a base64 \
+encoded string:"
+}], "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(?base64Decode\)\)], "Input"],
+
+Cell[BoxData[
+    \("base64Decode[str] returns the list containing the bits corresponding \
+to the base64-decoded version of the string str"\)], "Print",
+  CellTags->"Info3347957195-9892054"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+    \(\(decodedBytes = 
+        base64Decode["\<\
+VGhlIHF1aWNrIGJyb3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZw==\>"];\)\), "\
+\[IndentingNewLine]", 
+    \(FromCharacterCode[decodedBytes]\)}], "Input"],
+
+Cell[BoxData[
+    \("The quick brown fox jumps over the lazy dog"\)], "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["References", "Section"],
+
+Cell["Please send comments to malchiodi[at]dsi[dot]unimi[dot]it.", "Text"]
+}, Open  ]]
+},
+FrontEndVersion->"5.1 for Macintosh",
+ScreenRectangle->{{0, 1280}, {0, 761}},
+WindowToolbars->"EditBar",
+WindowSize->{705, 629},
+WindowMargins->{{Automatic, 149}, {Automatic, 13}},
+ShowSelection->True,
+StyleDefinitions -> "Demo.nb"
+]
+
+(*******************************************************************
+Cached data follows.  If you edit this Notebook file directly, not
+using Mathematica, you must remove the line containing CacheID at
+the top of  the file.  The cache data will then be recreated when
+you save this file from within Mathematica.
+*******************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{
+  "Info3347957193-2060766"->{
+    Cell[3502, 125, 153, 3, 23, "Print",
+      CellTags->"Info3347957193-2060766"]},
+  "Info3347957195-9892054"->{
+    Cell[4251, 156, 191, 3, 39, "Print",
+      CellTags->"Info3347957195-9892054"]}
+  }
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{
+  {"Info3347957193-2060766", 5625, 201},
+  {"Info3347957195-9892054", 5740, 204}
+  }
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1754, 51, 108, 5, 51, "Title"],
+Cell[1865, 58, 184, 6, 120, "Author"],
+
+Cell[CellGroupData[{
+Cell[2074, 68, 38, 0, 78, "Section"],
+Cell[2115, 70, 244, 5, 43, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2396, 80, 55, 0, 78, "Section"],
+Cell[2454, 82, 487, 12, 57, "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2978, 99, 36, 0, 78, "Section"],
+Cell[3017, 101, 121, 5, 29, "Text"],
+Cell[3141, 108, 43, 1, 31, "Input"],
+Cell[3187, 111, 237, 7, 43, "Text"],
+
+Cell[CellGroupData[{
+Cell[3449, 122, 50, 1, 31, "Input"],
+Cell[3502, 125, 153, 3, 23, "Print",
+  CellTags->"Info3347957193-2060766"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3692, 133, 184, 4, 63, "Input"],
+Cell[3879, 139, 98, 2, 46, "Output"]
+}, Open  ]],
+Cell[3992, 144, 181, 5, 29, "Text"],
+
+Cell[CellGroupData[{
+Cell[4198, 153, 50, 1, 31, "Input"],
+Cell[4251, 156, 191, 3, 39, "Print",
+  CellTags->"Info3347957195-9892054"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4479, 164, 213, 5, 79, "Input"],
+Cell[4695, 171, 79, 1, 46, "Output"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4823, 178, 29, 0, 78, "Section"],
+Cell[4855, 180, 74, 0, 29, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+(*******************************************************************
+End of Mathematica Notebook file.
+*******************************************************************)
+
