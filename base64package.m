@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (* : Title : base64 *)
 (* : Context : base64` *)
 (* : 
@@ -28,8 +30,8 @@ base64GroupDecode::usage =
 "base64GroupDecode[group] returns the three bytes corresponding to the base64-encoding whose bytes are in the list group";\
 
 base64Decode::usage=
-    "base64Decode[str] returns the list containing the bits corresponding to \
-the base64-decoded version of the string str";;\
+    "base64Decode[str] returns the list containing the bytes corresponding to \
+the base64-decoded version of the string str";\
 
 Begin["`Private`"]
 
