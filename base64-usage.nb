@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      5820,        226]
-NotebookOptionsPosition[      4034,        159]
-NotebookOutlinePosition[      4809,        188]
-CellTagsIndexPosition[      4685,        182]
+NotebookDataLength[      5871,        227]
+NotebookOptionsPosition[      4085,        160]
+NotebookOutlinePosition[      4860,        189]
+CellTagsIndexPosition[      4736,        183]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -30,10 +30,11 @@ Cell[TextData[{
 Cell["\<\
 Dario Malchiodi
 Universit\[AGrave] degli Studi di Milano
-Dipartimento di Scienze dell'Informazione
+Dipartimento di Informatica
 Via Comelico 39/41 2135 Milano ITALY
-malchiodi@dsi.unimi.it\
-\>", "Author"],
+malchiodi@di.unimi.it\
+\>", "Author",
+ CellChangeTimes->{{3.558806788035758*^9, 3.558806800455718*^9}}],
 
 Cell[CellGroupData[{
 
@@ -172,60 +173,60 @@ StyleDefinitions->FrontEnd`FileName[{"Report"}, "AutomatedReport.nb",
 (*CellTagsOutline
 CellTagsIndex->{
  "Info3347957193-2060766"->{
-  Cell[2314, 95, 151, 2, 20, "Print",
+  Cell[2365, 96, 151, 2, 20, "Print",
    CellTags->"Info3347957193-2060766"]},
  "Info3347957195-9892054"->{
-  Cell[3199, 128, 189, 2, 36, "Print",
+  Cell[3250, 129, 189, 2, 36, "Print",
    CellTags->"Info3347957195-9892054"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info3347957193-2060766", 4474, 173},
- {"Info3347957195-9892054", 4582, 176}
+ {"Info3347957193-2060766", 4525, 174},
+ {"Info3347957195-9892054", 4633, 177}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
 Cell[579, 22, 103, 5, 66, "Title"],
-Cell[685, 29, 184, 6, 100, "Author"],
+Cell[685, 29, 235, 7, 100, "Author"],
 Cell[CellGroupData[{
-Cell[894, 39, 38, 0, 66, "Section"],
-Cell[935, 41, 242, 4, 41, "Text"]
+Cell[945, 40, 38, 0, 66, "Section"],
+Cell[986, 42, 242, 4, 41, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1214, 50, 55, 0, 66, "Section"],
-Cell[1272, 52, 478, 12, 56, "Text"]
+Cell[1265, 51, 55, 0, 66, "Section"],
+Cell[1323, 53, 478, 12, 56, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1787, 69, 36, 0, 66, "Section"],
-Cell[1826, 71, 116, 5, 26, "Text"],
-Cell[1945, 78, 51, 1, 19, "Input"],
-Cell[1999, 81, 232, 7, 26, "Text"],
+Cell[1838, 70, 36, 0, 66, "Section"],
+Cell[1877, 72, 116, 5, 26, "Text"],
+Cell[1996, 79, 51, 1, 19, "Input"],
+Cell[2050, 82, 232, 7, 26, "Text"],
 Cell[CellGroupData[{
-Cell[2256, 92, 55, 1, 19, "Input"],
-Cell[2314, 95, 151, 2, 20, "Print",
+Cell[2307, 93, 55, 1, 19, "Input"],
+Cell[2365, 96, 151, 2, 20, "Print",
  CellTags->"Info3347957193-2060766"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2502, 102, 254, 7, 35, "Input"],
-Cell[2759, 111, 97, 1, 19, "Output"]
+Cell[2553, 103, 254, 7, 35, "Input"],
+Cell[2810, 112, 97, 1, 19, "Output"]
 }, Open  ]],
-Cell[2871, 115, 245, 6, 26, "Text"],
+Cell[2922, 116, 245, 6, 26, "Text"],
 Cell[CellGroupData[{
-Cell[3141, 125, 55, 1, 19, "Input"],
-Cell[3199, 128, 189, 2, 36, "Print",
+Cell[3192, 126, 55, 1, 19, "Input"],
+Cell[3250, 129, 189, 2, 36, "Print",
  CellTags->"Info3347957195-9892054"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3425, 135, 283, 7, 35, "Input"],
-Cell[3711, 144, 78, 0, 19, "Output"]
+Cell[3476, 136, 283, 7, 35, "Input"],
+Cell[3762, 145, 78, 0, 19, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3838, 150, 29, 0, 66, "Section"],
-Cell[3870, 152, 136, 3, 26, "Text"]
+Cell[3889, 151, 29, 0, 66, "Section"],
+Cell[3921, 153, 136, 3, 26, "Text"]
 }, Open  ]]
 }, Open  ]]
 }
