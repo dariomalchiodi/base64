@@ -52,8 +52,26 @@ the base64-decoded version of the string str";\
 
 Begin["`Private`"]
 
+(*
+changes by PB to use it for embedding images in html
+0->"A" //not "="
+63->"/" //not "-"
+replace trailing fillers with "="
+
+now You can do:
+
+raw = BinaryReadList[fn];
+base64 = base64Encode[raw];
+"<html><head></head><body><img src='data:image/" <> ext <> ";base64,\n" <> base64 <> "'></body></html>";
+
+will show embedded image
+
+specs for changes taken from wikipedia
+http://de.wikipedia.org/wiki/Base64
+*)
+
 base64EncodeTable[n_] := Which[
-    n == 0, "=",
+    n == 0, "A",
     n < 26,
     FromCharacterCode[ToCharacterCode["A"] + n],
     n < 52,
@@ -61,7 +79,7 @@ base64EncodeTable[n_] := Which[
     n < 62,
     FromCharacterCode[ToCharacterCode["0"] + n - 52],
     n == 62, "+",
-    n == 63, "-"
+    n == 63, "/"
     ]
 
 base64GroupEncode[group_] := Block[{},
@@ -69,18 +87,25 @@ base64GroupEncode[group_] := Block[{},
     base64EncodeTable /@ Map[FromDigits[#, 2] &, f]
     ]
 
-base64Encode[byt_] := Block[{b},
+base64Encode[byt_] := Block[{b,d},
     b = byt;
-    b = Join[b, Switch[Mod[Length[b], 3],
-          0, {},
-          1, {0, 0},
-          2, {0}
-          ]];
-    StringExpression @@ (base64GroupEncode /@ Partition[b, 3] // Flatten)
+	d = Mod[Length[b], 3];
+    b = Join[b,
+		Switch[ d,
+			  0, {},
+			  1, {0, 0},
+			  2, {0}
+			  ]
+	];
+    StringExpression @@ Flatten[{Take[
+	(base64GroupEncode /@ Partition[b, 3] // Flatten),
+	{1,-1-d}
+	],
+	Table["=",{i,1,d}]}]
     ]
 
 base64DecodeTable[c_] := Which[
-    FromCharacterCode[c] == "-", 63,
+    FromCharacterCode[c] == "/", 63,
     FromCharacterCode[c] == "+", 62,
     ToCharacterCode["0"][[1]] <= c <= ToCharacterCode["9"][[1]],
     c - ToCharacterCode["0"][[1]] + 52,
@@ -88,7 +113,7 @@ base64DecodeTable[c_] := Which[
     c - ToCharacterCode["a"][[1]] + 26,
     ToCharacterCode["A"][[1]] <= c <= ToCharacterCode["Z"][[1]],
     c - ToCharacterCode["A"][[1]],
-    FromCharacterCode[c] == "=", 0
+    FromCharacterCode[c] == "A", 0
     ]
 
 base64GroupDecode[group_] := Block[{},
